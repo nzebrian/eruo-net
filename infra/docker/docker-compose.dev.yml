@@ -1,0 +1,14 @@
+services:
+  workspace:
+    image: node:24-alpine
+    working_dir: /workspace
+    command: ["node", "--version"]
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    environment:
+      ERUONET_ENV: development
+    volumes:
+      - ../..:/workspace:ro
